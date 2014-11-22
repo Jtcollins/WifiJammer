@@ -22,7 +22,7 @@ def setup():
 		check_output('airmon-ng | grep mon0', shell=True)
 	except:
 		system('airmon-ng start wlan0')
-	system('timedatectl set-time "2013-9-26 18:17:16"')
+	system('timedatectl set-time "2014-8-10 18:00:00"')
 	gpio.setmode(gpio.BCM)
 	gpio.setup(ledr_pin, gpio.OUT)
 	gpio.setup(ledg_pin, gpio.OUT)
@@ -53,7 +53,7 @@ def jam():
 	gpio.output(ledg_pin, False)
 	gpio.output(ledr_pin, False)
 	gpio.output(ledb_pin, True)
-	tolcd('  INITIALISING', 1)
+	tolcd('  INITIALIZING', 1)
 	for i in range(14):
 		system('mdk3 mon0 d -c %i > /tmp/dlog%i &' % (i+1, i+1))
 	system('mdk3 mon0 a > /tmp/alog &')
